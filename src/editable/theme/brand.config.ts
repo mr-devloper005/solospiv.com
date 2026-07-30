@@ -5,6 +5,8 @@ import { getProductKind } from '@/design/factory/get-product-kind'
 const { recipe } = getFactoryState()
 const productKind = getProductKind(recipe)
 
+// Nivoro-inspired warm accent palette. Tokens flow through
+// editable-global.css and design-contract.ts, never JSX.
 export const slot4BrandConfig = {
   siteName: siteIdentity.name,
   tagline: siteIdentity.tagline,
@@ -13,7 +15,7 @@ export const slot4BrandConfig = {
   productKind,
   ogImage: siteIdentity.ogImage,
   accents: {
-    primary: '#d32323',
-    surface: '#ffffff',
+    primary: '#ff6d0c',
+    surface: '#fffdfb',
   },
 } as const
