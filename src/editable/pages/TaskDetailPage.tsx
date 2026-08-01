@@ -458,9 +458,9 @@ function ProfileDetail({ post }: { post: SitePost }) {
 
               <div className="mt-8 space-y-2.5">
                 {location ? <IdentityRow icon={MapPin} value={location} /> : null}
-                {website ? <IdentityRow icon={Globe} value={website.replace(/^https?:\/\//, '').replace(/\/$/, '')} href={website} /> : null}
-                {email ? <IdentityRow icon={Mail} value={email} href={`mailto:${email}`} /> : null}
-                {phone ? <IdentityRow icon={Phone} value={phone} href={`tel:${phone}`} /> : null}
+                {website ? <IdentityRow icon={Globe} value={website.replace(/^https?:\/\//, '').replace(/\/$/, '')} /> : null}
+                {email ? <IdentityRow icon={Mail} value={email} /> : null}
+                {phone ? <IdentityRow icon={Phone} value={phone} /> : null}
               </div>
 
               {tags.length ? (
@@ -488,21 +488,17 @@ function ProfileDetail({ post }: { post: SitePost }) {
             <BodyContent post={post} />
 
             {/* Contact row */}
-            <div className="mt-12 flex flex-wrap gap-3">
+            <div className="mt-12 flex flex-wrap items-center gap-4">
               {website ? (
                 <a href={website} target="_blank" rel="nofollow noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[var(--tk-text)] px-5 py-3 text-sm font-medium text-white transition hover:bg-[var(--tk-accent)]">
                   Visit site <ExternalLink className="h-4 w-4" />
                 </a>
               ) : null}
               {email ? (
-                <a href={`mailto:${email}`} className="inline-flex items-center gap-2 rounded-full border border-[var(--tk-line)] px-5 py-3 text-sm font-medium text-[var(--tk-text)] transition hover:border-[var(--tk-text)]">
-                  <Mail className="h-4 w-4" /> Email
-                </a>
+                <span className="text-[14px] text-[var(--tk-muted)]">{email}</span>
               ) : null}
               {phone ? (
-                <a href={`tel:${phone}`} className="inline-flex items-center gap-2 rounded-full border border-[var(--tk-line)] px-5 py-3 text-sm font-medium text-[var(--tk-text)] transition hover:border-[var(--tk-text)]">
-                  <Phone className="h-4 w-4" /> Call
-                </a>
+                <span className="text-[14px] text-[var(--tk-muted)]">{phone}</span>
               ) : null}
             </div>
           </EditableReveal>
